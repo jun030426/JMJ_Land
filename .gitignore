@@ -97,3 +97,8 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+Assets/BrokenVector.meta
+Assets/BrokenVector/LowPolyFencePack.meta
+Assets/BrokenVector/LowPolyFencePack/Scenes.meta
+Assets/BrokenVector/LowPolyFencePack/Scenes/All Fences Example.meta
+Assets/BrokenVector/LowPolyFencePack/Scenes/All Fences Example.unity.meta

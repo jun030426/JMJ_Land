@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 4900459593068212203}
   - component: {fileID: 928370192364545667}
   - component: {fileID: 4797832403783791839}
+  - component: {fileID: 2800578475226929936}
   m_Layer: 0
   m_Name: TreeTopPivot
   m_TagString: Untagged
@@ -80,12 +81,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb184d72a9d348f42aee69e93db9fa10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  growthStages:
-  - {fileID: 3834621798526062972}
-  - {fileID: 8239435813781039620}
-  - {fileID: 637715435872054589}
-  - {fileID: 1734416973463242328}
   animator: {fileID: 4797832403783791839}
+  fallTrigger: FallTrigger
+  idleStateName: Idle
+  fallingObject: {fileID: 0}
+  fallVisual: {fileID: 0}
+  stage0_Stump: {fileID: 3834621798526062972}
+  t1_Small: {fileID: 8239435813781039620}
+  t2_Mid: {fileID: 637715435872054589}
+  t3_Full: {fileID: 1734416973463242328}
+  stageInterval: 3
+  useRealtimeWait: 1
+  clickableColliders: []
 --- !u!95 &4797832403783791839
 Animator:
   serializedVersion: 7
@@ -96,7 +103,7 @@ Animator:
   m_GameObject: {fileID: 4957377033861130276}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d4bbd78bda27cdb439d7754da3997ff5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1fd074ee54e169e4b9483c6bea4237b9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -108,6 +115,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2800578475226929936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4957377033861130276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 140a9fb9799f2ef4ca02e305872813a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 928370192364545667}
 --- !u!1 &5722714448338264438
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,6 +138,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6042151835648303827}
   - component: {fileID: 1557995013461518268}
+  - component: {fileID: 6866412290280408141}
+  - component: {fileID: 5984061920754741919}
   m_Layer: 0
   m_Name: TreeRoot
   m_TagString: Untagged
@@ -134,7 +156,7 @@ Transform:
   m_GameObject: {fileID: 5722714448338264438}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.21233, y: 3.8918, z: -0.48816}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -153,11 +175,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb184d72a9d348f42aee69e93db9fa10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  growthStages:
-  - {fileID: 8239435813781039620}
-  - {fileID: 637715435872054589}
-  - {fileID: 1734416973463242328}
-  animator: {fileID: 0}
+  animator: {fileID: 4797832403783791839}
+  fallTrigger: FallTrigger
+  idleStateName: Idle
+  fallingObject: {fileID: 0}
+  fallVisual: {fileID: 0}
+  stage0_Stump: {fileID: 3834621798526062972}
+  t1_Small: {fileID: 8239435813781039620}
+  t2_Mid: {fileID: 637715435872054589}
+  t3_Full: {fileID: 1734416973463242328}
+  stageInterval: 3
+  useRealtimeWait: 1
+  clickableColliders: []
+--- !u!95 &6866412290280408141
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5722714448338264438}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1fd074ee54e169e4b9483c6bea4237b9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5984061920754741919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5722714448338264438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 140a9fb9799f2ef4ca02e305872813a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 928370192364545667}
 --- !u!1001 &558019108992928249
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -185,6 +249,10 @@ PrefabInstance:
     - target: {fileID: 8495513324701328381, guid: 6cb72a3a9142647be8a73b9b0658c5b7, type: 3}
       propertyPath: m_Name
       value: FullGTree
+      objectReference: {fileID: 0}
+    - target: {fileID: 8495513324701328381, guid: 6cb72a3a9142647be8a73b9b0658c5b7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8495513324701328381, guid: 6cb72a3a9142647be8a73b9b0658c5b7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -241,9 +309,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8495513324701328381, guid: 6cb72a3a9142647be8a73b9b0658c5b7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1862027872918803580}
-    - targetCorrespondingSourceObject: {fileID: 8495513324701328381, guid: 6cb72a3a9142647be8a73b9b0658c5b7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3455465819487716579}
   m_SourcePrefab: {fileID: 100100000, guid: 6cb72a3a9142647be8a73b9b0658c5b7, type: 3}
 --- !u!1 &8239435813781039620 stripped
 GameObject:
@@ -273,28 +338,6 @@ CapsuleCollider:
   m_Height: 5.119395
   m_Direction: 1
   m_Center: {x: -0.050923347, y: 2.5596974, z: 0.061355054}
---- !u!95 &3455465819487716579
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8239435813781039620}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1fd074ee54e169e4b9483c6bea4237b9, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &8724470402136191166 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9128216963764189511, guid: 6cb72a3a9142647be8a73b9b0658c5b7, type: 3}
@@ -373,7 +416,7 @@ PrefabInstance:
       addedObject: {fileID: 622659612526602697}
     - targetCorrespondingSourceObject: {fileID: 8495513324701328381, guid: 6cb72a3a9142647be8a73b9b0658c5b7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7521669465229335595}
+      addedObject: {fileID: 2706796956412471315}
   m_SourcePrefab: {fileID: 100100000, guid: 6cb72a3a9142647be8a73b9b0658c5b7, type: 3}
 --- !u!4 &1394483800420850914 stripped
 Transform:
@@ -408,28 +451,18 @@ CapsuleCollider:
   m_Height: 5.119395
   m_Direction: 1
   m_Center: {x: -0.050923347, y: 2.5596974, z: 0.061355054}
---- !u!95 &7521669465229335595
-Animator:
-  serializedVersion: 7
+--- !u!114 &2706796956412471315
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1734416973463242328}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1fd074ee54e169e4b9483c6bea4237b9, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec21830c8c587424bba780ff92a2d32a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9025141725055962816
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -457,6 +490,10 @@ PrefabInstance:
     - target: {fileID: 8495513324701328381, guid: 6cb72a3a9142647be8a73b9b0658c5b7, type: 3}
       propertyPath: m_Name
       value: FullGTree 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8495513324701328381, guid: 6cb72a3a9142647be8a73b9b0658c5b7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8495513324701328381, guid: 6cb72a3a9142647be8a73b9b0658c5b7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -513,9 +550,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8495513324701328381, guid: 6cb72a3a9142647be8a73b9b0658c5b7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5801370295301075765}
-    - targetCorrespondingSourceObject: {fileID: 8495513324701328381, guid: 6cb72a3a9142647be8a73b9b0658c5b7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7509031607546479589}
   m_SourcePrefab: {fileID: 100100000, guid: 6cb72a3a9142647be8a73b9b0658c5b7, type: 3}
 --- !u!4 &257354320056399751 stripped
 Transform:
@@ -550,25 +584,3 @@ CapsuleCollider:
   m_Height: 5.119395
   m_Direction: 1
   m_Center: {x: -0.050923347, y: 2.5596974, z: 0.061355054}
---- !u!95 &7509031607546479589
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 637715435872054589}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1fd074ee54e169e4b9483c6bea4237b9, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
