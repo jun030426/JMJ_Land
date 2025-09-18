@@ -21,7 +21,7 @@ public class choppableTree : MonoBehaviour
     [Header("Interaction")]
     public Transform player;           // 비워두면 playerTag로 자동 찾음
     public string playerTag = "Player";
-    public float interactRange = 3f;   // 이 거리 안에 있어야 스페이스가 먹음
+    public float interactRange = 0.1f;   // 이 거리 안에 있어야 스페이스가 먹음
 
     private bool isAnimating = false;
 

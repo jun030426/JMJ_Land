@@ -1,16 +1,34 @@
 using UnityEngine;
-
-public class Playar : MonoBehaviour
+using System.Collections;
+using System.Collections.Generic;
+public class Player : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public float speed;
+   float hAxis;
+   float vAxis;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   bool wDown;
+
+   Vector3 moveVec;
+
+   Animator anim;
+
+   void Awake(){
+    anim=GetComponentInChildren<Animator>();
+   }
+   void Update(){
+    hAxis=Input.GetAxisRaw("Horizontal");
+    vAxis=Input.GetAxisRaw("Vertical");
+    wDown=Input.GetButton("Walk");
+
+    moveVec=new Vector3(hAxis,0,vAxis).normalized;
+
+    transform.position+=moveVec*speed*(wDown?0.3f:1)*Time.deltaTime;
+
+    anim.SetBool("isHammering",moveVec!=Vector3.zero);
+    anim.SetBool("isWalk",wDown);
+
+    transform.LookAt(transform.position+moveVec);
+   }
+
 }
