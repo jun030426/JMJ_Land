@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
 
     transform.position+=moveVec*speed*(wDown?0.3f:1)*Time.deltaTime;
 
-    anim.SetBool("isHammering",moveVec!=Vector3.zero);
+    //anim.SetBool("isHammering",moveVec!=Vector3.zero);
     anim.SetBool("isWalk",wDown);
 
     transform.LookAt(transform.position+moveVec);
